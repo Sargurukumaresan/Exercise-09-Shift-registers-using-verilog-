@@ -1,9 +1,12 @@
 
 # Experiment--09-Implementation-of Shift-registers-using-verilog-
-### AIM: To implement PISO , PIPO,PISO  using verilog and validating their functionality using their functional tables
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
-### THEORY 
+### AIM: 
+To implement PISO , PIPO,PISO  using verilog and validating their functionality using their functional tables
+### HARDWARE REQUIRED:  
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:   
+Quartus prime
+### THEORY: 
 Shift registers are basically of 4 types. These are:
 
 Serial In Serial Out shift register
@@ -40,40 +43,85 @@ The logic circuit given below shows a parallel-in-parallel-out shift register. T
 FIGURE-04
 A Parallel in Parallel out (PIPO) shift register is used as a temporary storage device and like SISO Shift register it acts as a delay element.
 
-### Procedure
-/* write all the steps invloved */
+### PROCEDURE:
+1. Use quartus software and import required modules.
+2. Assign inputs and outputs for shift registers.
+3. Assign logic for input to give output at positive edge.
+4. Perform opertaions and produce rtl circuit.
+5. End the module
 
-
-
-### PROGRAM 
-/*
+### PROGRAM (Serial Input Parallel Output (SIPO))
+```
 Program for  Implementation-of Shift-registers-using-verilog-
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Harini.B 
+RegisterNumber: 212221230035  
 
+module SIPO(SI,Clk,PO);
+input SI,Clk;
+output[0:7]PO;
+reg[0:7]temp;
+always@(posedge Clk)
+begin
+temp = {temp[0:6],SI};
+end
+assign PO = temp;
+endmodule
+```
 
+### PROGRAM (Parallel Input Serial Output (PISO))
+```
+Program for  Implementation-of Shift-registers-using-verilog-
+Developed by: SARGURU K 
+RegisterNumber: 22002828 
 
+module PISO(Clk, Parallel_In,load, Serial_Out);
+input Clk,load;
+input [3:0]Parallel_In;
+output reg Serial_Out;
+reg [3:0]tmp;
+always @(posedge Clk)
+begin
+if(load)
+tmp<=Parallel_In;
+else
+begin
+Serial_Out<=tmp[3];
+tmp<={tmp[2:0],1'b0};
+end
+end
+endmodule
+```
 
+### PROGRAM (Parallel Input Parallel Output (PIPO)
+```
+Program for  Implementation-of Shift-registers-using-verilog-
+Developed by: SARGURU K 
+RegisterNumber: 22002828
 
+module PIPO(PI,Clk,PO);
+input Clk;
+input[3:0]PI;
+output reg[3:0]PO;
+always@(posedge Clk)
+begin
+PO = PI;
+end 
+endmodule
+```
 
-### RTL LOGIC  REGISTERS   
+### RTL LOGIC REGISTERS (Serial Input Parallel Output (SIPO))  
+![sipo](https://user-images.githubusercontent.com/93427253/172899650-05a97d5e-65e5-45b6-8fe3-aa69dc1f1589.png)
+### RTL LOGIC REGISTERS (Parallel Input Serial Output (PISO))
+![pisortl](https://user-images.githubusercontent.com/93427253/172900001-2fc2624e-d071-4aa5-8d3c-c444319eeb5a.png)
+### RTL LOGIC REGISTERS (Parallel Input Parallel Output (PIPO))
+![pipo](https://user-images.githubusercontent.com/93427253/172899755-849a05ee-df61-49ba-a8dd-94891acf0b1d.png)
 
+### TIMING DIGRAMS FOR SHIFT REGISTERS (Serial Input Parallel Output (SIPO))
+![sipowf](https://user-images.githubusercontent.com/93427253/172900713-899f6221-ba2b-4749-979f-93b5b1821338.png)
+### TIMING DIGRAMS FOR SHIFT REGISTERS (Parallel Input Serial Output (PISO))
+![pisowf](https://user-images.githubusercontent.com/93427253/172900842-02e54b53-c1be-475c-9ae3-e0d3dd5dd29c.png)
+### TIMING DIGRAMS FOR SHIFT REGISTERS (Parallel Input Parallel Output (PIPO))
+![pipowf](https://user-images.githubusercontent.com/93427253/172900890-0a5d0a0c-e659-4841-804b-7c1a97794a14.png)
 
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR SHIFT REGISTERS
-
-
-
-
-
-
-
-
-### RESULTS 
+### RESULT:
+Thus, PISO , PIPO, SIPO are implemented using verilog and their functionality using their functional tables is validated.
