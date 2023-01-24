@@ -1,12 +1,12 @@
 
 # Experiment--09-Implementation-of Shift-registers-using-verilog-
-### AIM: 
+## AIM: 
 To implement PISO , PIPO,PISO  using verilog and validating their functionality using their functional tables
-### HARDWARE REQUIRED:  
+## HARDWARE REQUIRED:  
 PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   
+## SOFTWARE REQUIRED:   
 Quartus prime
-### THEORY: 
+## THEORY: 
 Shift registers are basically of 4 types. These are:
 
 Serial In Serial Out shift register
@@ -43,18 +43,18 @@ The logic circuit given below shows a parallel-in-parallel-out shift register. T
 FIGURE-04
 A Parallel in Parallel out (PIPO) shift register is used as a temporary storage device and like SISO Shift register it acts as a delay element.
 
-### PROCEDURE:
+## PROCEDURE:
 1. Use quartus software and import required modules.
 2. Assign inputs and outputs for shift registers.
 3. Assign logic for input to give output at positive edge.
 4. Perform opertaions and produce rtl circuit.
 5. End the module
 
-### PROGRAM (Serial Input Parallel Output (SIPO))
+## PROGRAM (Serial Input Parallel Output (SIPO))
 ```
 Program for  Implementation-of Shift-registers-using-verilog-
-Developed by: Harini.B 
-RegisterNumber: 212221230035  
+Developed by: SARGURU K 
+RegisterNumber: 22002828  
 
 module SIPO(SI,Clk,PO);
 input SI,Clk;
@@ -68,7 +68,7 @@ assign PO = temp;
 endmodule
 ```
 
-### PROGRAM (Parallel Input Serial Output (PISO))
+## PROGRAM (Parallel Input Serial Output (PISO))
 ```
 Program for  Implementation-of Shift-registers-using-verilog-
 Developed by: SARGURU K 
@@ -92,7 +92,7 @@ end
 endmodule
 ```
 
-### PROGRAM (Parallel Input Parallel Output (PIPO)
+## PROGRAM (Parallel Input Parallel Output (PIPO)
 ```
 Program for  Implementation-of Shift-registers-using-verilog-
 Developed by: SARGURU K 
@@ -123,5 +123,5 @@ endmodule
 ### TIMING DIGRAMS FOR SHIFT REGISTERS (Parallel Input Parallel Output (PIPO))
 ![pipowf](https://user-images.githubusercontent.com/93427253/172900890-0a5d0a0c-e659-4841-804b-7c1a97794a14.png)
 
-### RESULT:
+## RESULT:
 Thus, PISO , PIPO, SIPO are implemented using verilog and their functionality using their functional tables is validated.
